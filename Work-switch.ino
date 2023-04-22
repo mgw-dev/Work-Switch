@@ -1,9 +1,9 @@
 #define RELAY_OFF HIGH
 #define RELAY_ON LOW
-#define RELAY1_PIN 2
-#define RELAY2_PIN 3
-#define RELAY3_PIN 4
-#define RELAY4_PIN 5
+#define RELAY1_PIN 5
+#define RELAY2_PIN 4
+#define RELAY3_PIN 3
+#define RELAY4_PIN 2
 #define SWITCH_PIN 6
 #define debounce 1
 
@@ -33,7 +33,7 @@ void loop() {
   else{
     digitalWrite(LED_BUILTIN, LOW);
     offSequence();
-    
+
   }
 }
   
@@ -42,13 +42,17 @@ void onSequence(){
   digitalWrite(RELAY1_PIN, RELAY_ON);
   delay(1000);
   digitalWrite(RELAY2_PIN, RELAY_ON);
+  delay(100);
   digitalWrite(RELAY3_PIN, RELAY_ON);
+  delay(100);
   digitalWrite(RELAY4_PIN, RELAY_ON);
 }
 
 void offSequence(){
   digitalWrite(RELAY4_PIN, RELAY_OFF);
+  delay(100);
   digitalWrite(RELAY3_PIN, RELAY_OFF);
+  delay(100);
   digitalWrite(RELAY2_PIN, RELAY_OFF);
   delay(1000);
   digitalWrite(RELAY1_PIN, RELAY_OFF);
